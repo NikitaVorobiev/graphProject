@@ -96,7 +96,7 @@ public class FirstIndexImpl implements FirstIndex {
 
         for (Set<String> unicWord : unicWordsSplitted){
             threads.add(() -> {
-                //System.out.println("ПОТОК ОДИН СТАРТ");
+                System.out.println("ПОТОК СТАРТ");
                 for (String word : unicWord){ // для каждого уникального слова разбивается текст и обновляются веса
                     List<List<String>> splittedWords = textProcessor.unicSplitter(workText, word);
 
@@ -105,7 +105,7 @@ public class FirstIndexImpl implements FirstIndex {
                         updateWeights(word, singleString, weights);
                     }
                 }
-                //System.out.println("ПОТОК ОДИН ФИНИШ");
+                System.out.println("ПОТОК ФИНИШ");
             });
         }
 
@@ -113,7 +113,7 @@ public class FirstIndexImpl implements FirstIndex {
 
         System.out.println("ПОТОКИ ОДИН ОТРАБОТАЛИ");
 
-        System.out.println(index);
+        //System.out.println(index);
         return true;
     }
 

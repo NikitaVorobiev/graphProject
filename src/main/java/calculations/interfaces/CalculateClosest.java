@@ -18,14 +18,23 @@ public interface CalculateClosest {
     double calculate(List<String> input, Map<String, Map<String, Double>> graph);
 
     /**
-     * Метод для определения направления в контекстом графе между двумя словами
+     * Перегрузка для строки
+     *
+     * @param input список слов ввода пользователя
+     * @param graph контекстный граф
+     * @return значение приближения от 0 до 1
+     */
+    double calculate(String input, Map<String, Map<String, Double>> graph);
+
+    /**
+     * Метод для определения направления в контекстном графе между двумя словами
      *
      * @param wordFirst первое слово
      * @param wordSecond второе слово
-     * @param graph контекстный граф
+     * @param singleString одна строка контекстного графа
      * @return true если направление прямое (слова в графе идут последовательно), false если обратное
      */
-    boolean isForwardDirection(String wordFirst, String wordSecond, Map<String, Map<String, Double>> graph);
+    boolean isForwardDirection(String wordFirst, String wordSecond, Map<String, Double> singleString);
 
     /**
      * Метод для расчета числа вершин наибольшего общего подграфа
@@ -35,5 +44,14 @@ public interface CalculateClosest {
      * @return число вершин графа
      */
     int calculateVertex(List<String> input, Map<String, Map<String, Double>> graph);
+
+    /**
+     * Метод для расчета числа вершин, идущих в том же направлении по набору вершин от одного слова графа
+     *
+     * @param input список слов ввода пользователя
+     * @param singleString строка вершин контекстного графа
+     * @return число совпадающих слов
+     */
+    int calculateFullDirection(List<String> input, Map<String, Double> singleString);
 
 }

@@ -21,7 +21,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class FirstIndexImplTest {
 
     private Stemmer st = new StemmerPorterRU();
-
     private WeightCalculator wc = new WeightCalculatorByPercent();
     TextProcessor tp = new TextProcessorImpl(st, wc);
 
